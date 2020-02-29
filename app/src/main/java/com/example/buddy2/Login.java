@@ -20,9 +20,9 @@ public class Login extends AppCompatActivity {
             @Override
             //currently creates a new database with each "click to begin"
             public void onClick(View v) {
-                TextView uName = findViewById(R.id.login_username);
+                TextView Email = findViewById(R.id.login_email);
                 TextView pWord = findViewById(R.id.login_password);
-                String username = uName.getText().toString();
+                String username = Email.getText().toString();
                 String password = pWord.getText().toString();
 
                 Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
             @Override
             //currently creates a new database with each "click to begin"
             public void onClick(View v) {
-                TextView uName = findViewById(R.id.login_username);
+                TextView uName = findViewById(R.id.login_email);
                 TextView pWord = findViewById(R.id.login_password);
                 String username = uName.getText().toString();
                 String password = pWord.getText().toString();
