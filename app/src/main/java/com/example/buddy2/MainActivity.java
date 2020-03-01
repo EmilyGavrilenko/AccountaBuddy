@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new SocialFragment();
                             break;
                         case R.id.nav_profile:
-                            startIntent = new Intent(getApplicationContext(),Profile.class);
-                            startActivity(startIntent);
                             selectedFragment = new ProfileFragment();
                             break;
                     }
