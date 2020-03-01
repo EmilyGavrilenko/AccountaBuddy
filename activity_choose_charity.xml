@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/choose_charity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:text="Choose a Charity"
+        android:textColor="@color/colorPrimary"
+        android:textSize = "30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_charity">
+
+        <Button
+            android:id="@+id/charity1"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:background="@android:color/transparent"
+            android:text="" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/red_cross" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:text="The Red Cross"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/c1_desc"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/transparent"
+            android:text="A humanitarian organization that provides emergency assistance, disaster relief, and disaster preparedness."
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <Button
+            android:id="@+id/charity2"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:background="@android:color/transparent"
+            android:text="" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/salvation_army" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:text="Salvation Army"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/c2_desc"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/transparent"
+            android:text="meet human need without discrimination to directly benefits those in need throughout your local community."
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <Button
+            android:id="@+id/charity3"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:background="@android:color/transparent"
+            android:text="" />
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/habitat_for_humanity" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:text="Habitat for Humanity"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/c3_desc"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/transparent"
+            android:text="Help build strong and stable communities and help families build and improve places to call home."
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
