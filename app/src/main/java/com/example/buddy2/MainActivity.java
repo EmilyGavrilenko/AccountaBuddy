@@ -45,19 +45,24 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     Fragment selectedFragment = null;
+                    Intent startIntent;
                     switch (menuItem.getItemId())
                     {
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
+                            startIntent = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(startIntent);
                             break;
                         case R.id.nav_new:
-                            Intent startIntent = new Intent(getApplicationContext(),CreateChallenge.class);
+                            startIntent = new Intent(getApplicationContext(),CreateChallenge.class);
                             startActivity(startIntent);
                             break;
                         case R.id.nav_friends:
                             selectedFragment = new SocialFragment();
                             break;
                         case R.id.nav_profile:
+                            startIntent = new Intent(getApplicationContext(),Profile.class);
+                            startActivity(startIntent);
                             selectedFragment = new ProfileFragment();
                             break;
                     }
