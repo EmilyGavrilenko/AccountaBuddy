@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateChallenge"></activity>
         <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"></activity>
+        <activity
+            android:name=".CreateChallenge"
+            android:label= "CreateChallenge"/>
+       <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile" />
         <activity android:name=".CreateAccount" />

@@ -4,5 +4,4 @@
     <item name="nav_new" type="id" />
     <item name="nav_friends" type="id" />
     <item name="nav_profile" type="id" />
-    <item name="fragment_container" type="id" />
 </resources>
