@@ -17,19 +17,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//            // Name, email address, and user id
-//            String name = user.getDisplayName();
-//            String email = user.getEmail();
-//            String uid = user.getUid();
-//
-//            Toast.makeText(MainActivity.this, email + " " + uid,
-//                    Toast.LENGTH_SHORT).show();
-//        }
-//        else{
-//
-//        }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Name, email address, and user id
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String uid = user.getUid();
+
+            Toast.makeText(MainActivity.this, email + " " + uid,
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
