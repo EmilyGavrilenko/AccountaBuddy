@@ -65,7 +65,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Betting amount $$"
-        android:inputType="text"
+        android:inputType="numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@id/Betting_amount" />
 
     <Button
-        android:id="@+id/skip_login"
+        android:id="@+id/cancel_challenge"
         android:layout_width="180dp"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
@@ -120,3 +120,4 @@
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
+© 2020 GitHub, Inc.
