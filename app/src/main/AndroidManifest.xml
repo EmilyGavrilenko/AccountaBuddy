@@ -15,7 +15,7 @@
         <activity
             android:name=".CreateChallenge"
             android:label= "CreateChallenge"/>
-        <activity
+       <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile" />
         <activity android:name=".CreateAccount" />
