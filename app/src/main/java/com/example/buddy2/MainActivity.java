@@ -1,5 +1,6 @@
 package com.example.buddy2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.nav_new:
-                            selectedFragment = new NewFragment();
+                            Intent startIntent = new Intent(getApplicationContext(),CreateChallenge.class);
+                            startActivity(startIntent);
                             break;
                         case R.id.nav_friends:
                             selectedFragment = new SocialFragment();
@@ -59,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    if (selectedFragment != null)
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
                 }
             };
