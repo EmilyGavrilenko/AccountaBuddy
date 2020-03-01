@@ -88,7 +88,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         if (!validateForm()) {
             return;
         }
-
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
