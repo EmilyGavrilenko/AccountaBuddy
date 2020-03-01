@@ -3,29 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".SplashActivity">
 
     <TextView
-        android:id="@+id/friends_page"
+        android:id="@+id/Intro_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:text="Friends Page Coming Soon..."
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:layout_marginTop="60dp"
+        android:text="Account-a-Buddy"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="293dp"
-        android:layout_height="451dp"
-        android:layout_marginTop="108dp"
+        android:id="@+id/intro_logo"
+        android:layout_width="369dp"
+        android:layout_height="461dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/friends_pic" />
+        app:layout_constraintTop_toBottomOf="@id/Intro_text"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/doggie" />
 </android.support.constraint.ConstraintLayout>

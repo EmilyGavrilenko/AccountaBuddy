@@ -1,4 +1,4 @@
-package com.example.slohacks_2020;
+package com.example.buddy2;
 
 public class Challenge
 {
