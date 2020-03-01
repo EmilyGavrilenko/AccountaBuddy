@@ -13,7 +13,7 @@
         android:layout_marginStart="101dp"
         android:layout_marginLeft="101dp"
         android:layout_marginTop="55dp"
-        android:text="Home Fragment"
+        android:text="@string/home_fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
