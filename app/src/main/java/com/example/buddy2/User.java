@@ -1,4 +1,4 @@
-package com.example.slohacks_2020;
+package com.example.buddy2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +104,7 @@ public class User
     }
 
     public void removeFriend(User user)
-            //throws NullPointerException
+    //throws NullPointerException
     {
         if(friends.contains(user))
         {
