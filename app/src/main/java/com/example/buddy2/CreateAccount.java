@@ -57,23 +57,33 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         String email = mEmail.getText().toString();
         String fName = mFirstname.getText().toString();
         String lName = mLastname.getText().toString();
+        String password = mPassword.getText().toString();
+        User user1 = new User(fName, lName, email, password);
+
+        String userId = mAuth.getUid();
 
         // Create a new user with a first, middle, and last name
         Map<String, Object> user = new HashMap<>();
-        user.put("first", fName);
-        user.put("last", lName);
-        user.put("email", email);
-        user.put("moneyDonated", 0);
-        user.put("totalChallenges", 0);
-        user.put("completedChallenges", 0);
+        user.put("username", user1);
+
 
         // Add a new document with a generated ID
-        fStore.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+// <<<<<<< meha
+//         fStore.collection("users")
+//                 .add(user1)
+//                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+=======
+        if(userId == null){
+            userId = "D0BGz0ksG0TY70dGqUCQOgjho1Z2";
+        }
+
+        fStore.collection("users").document(userId)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + mAuth.getUid());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -82,7 +92,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
-
     }
 
     private void createAccount(String email, String password) {
@@ -121,9 +130,14 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 });
         // [END create_user_with_email]
 
+        if(mAuth.getCurrentUser() == null){
+            Toast.makeText(CreateAccount.this, "Unable to Create New User. Set to Default",
+                    Toast.LENGTH_SHORT).show();
+
+        }
+
         addToDatabase();
-        Toast.makeText(CreateAccount.this, "Reached end.",
-                Toast.LENGTH_SHORT).show();
+
         Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
         startActivity(startIntent);
     }

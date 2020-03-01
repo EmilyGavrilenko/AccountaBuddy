@@ -1,34 +1,92 @@
-package com.example.slohacks_2020;
+package com.example.buddy2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class User
 {
-    public String username;
+    public String userID;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public String password;
     //profile photo
     public List<Challenge> pastChallenges;
     public List<Challenge> currentChallenges;
-    public List<User> friends;
-    public List<User> friendRequests;
+    //public List<User> friends;
+    //public List<User> friendRequests;
     //public List<String> notifications;
     public BankAccount bankAccount;
     public Charity charity;
     public double moneyDonated;
 
-    public User(String username)
+    public User(String firstName, String lastName, String email, String password)
     {
-        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
         pastChallenges = new ArrayList<>();
         currentChallenges = new ArrayList<>();
-        friends = new ArrayList<>();
-        friendRequests = new ArrayList<>();
+        //friends = new ArrayList<>();
+        //friendRequests = new ArrayList<>();
+        moneyDonated = 0;
+    }
+    public User()
+    {
+        pastChallenges = new ArrayList<>();
+        currentChallenges = new ArrayList<>();
+        //friends = new ArrayList<>();
+        //friendRequests = new ArrayList<>();
         moneyDonated = 0;
     }
 
-    public void setUsername(String newname)
-    {
-        username = newname;
+    public String getEmail() {
+        return email;
+    }
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public Charity getCharity() {
+        return charity;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setCurrentChallenges(List<Challenge> currentChallenges) {
+        this.currentChallenges = currentChallenges;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Challenge> getCurrentChallenges() {
+        return currentChallenges;
+    }
+
+    public List<Challenge> getPastChallenges() {
+        return pastChallenges;
     }
 
     //public void setProfilePhoto()
@@ -54,9 +112,9 @@ public class User
         return moneyDonated;
     }
 
-    public void newChallenge(String description, double amount)
+    public void newChallenge(String challengeID, String description, double amount)
     {
-        Challenge challenge = new Challenge(description, amount); // add deadline
+        Challenge challenge = new Challenge(challengeID,description, amount); // add deadline
         currentChallenges.add(challenge);
     }
 
@@ -83,7 +141,7 @@ public class User
     }
 
     // friendship
-    public void sendFriendRequest(User user)
+    /*public void sendFriendRequest(User user)
     {
         user.friendRequests.add(user);
         //add notification
@@ -104,7 +162,7 @@ public class User
     }
 
     public void removeFriend(User user)
-            //throws NullPointerException
+    //throws NullPointerException
     {
         if(friends.contains(user))
         {
@@ -116,5 +174,5 @@ public class User
             System.out.println("Error : user not found in this.friends :could not remove user from this.friends");
             //throw NullPointerException;
         }
-    }
+    }*/
 }
