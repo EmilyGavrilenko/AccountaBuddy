@@ -57,19 +57,17 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         String email = mEmail.getText().toString();
         String fName = mFirstname.getText().toString();
         String lName = mLastname.getText().toString();
+        String password = mPassword.getText().toString();
+        User user1 = new User(fName, lName, email, password);
 
         // Create a new user with a first, middle, and last name
         Map<String, Object> user = new HashMap<>();
-        user.put("first", fName);
-        user.put("last", lName);
-        user.put("email", email);
-        user.put("moneyDonated", 0);
-        user.put("totalChallenges", 0);
-        user.put("completedChallenges", 0);
+        user.put("username", user1);
+
 
         // Add a new document with a generated ID
         fStore.collection("users")
-                .add(user)
+                .add(user1)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

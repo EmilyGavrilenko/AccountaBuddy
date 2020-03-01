@@ -5,7 +5,11 @@ import java.util.List;
 
 public class User
 {
-    public String username;
+    public String userID;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public String password;
     //profile photo
     public List<Challenge> pastChallenges;
     public List<Challenge> currentChallenges;
@@ -16,9 +20,20 @@ public class User
     public Charity charity;
     public double moneyDonated;
 
-    public User(String username)
+    public User(String firstName, String lastName, String email, String password)
     {
-        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        pastChallenges = new ArrayList<>();
+        currentChallenges = new ArrayList<>();
+        friends = new ArrayList<>();
+        friendRequests = new ArrayList<>();
+        moneyDonated = 0;
+    }
+    public User()
+    {
         pastChallenges = new ArrayList<>();
         currentChallenges = new ArrayList<>();
         friends = new ArrayList<>();
@@ -26,9 +41,60 @@ public class User
         moneyDonated = 0;
     }
 
-    public void setUsername(String newname)
-    {
-        username = newname;
+    public String getEmail() {
+        return email;
+    }
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public Charity getCharity() {
+        return charity;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setCurrentChallenges(List<Challenge> currentChallenges) {
+        this.currentChallenges = currentChallenges;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Challenge> getCurrentChallenges() {
+        return currentChallenges;
+    }
+
+    public List<Challenge> getPastChallenges() {
+        return pastChallenges;
+    }
+
+    public List<User> getFriendRequests() {
+        return friendRequests;
+    }
+
+    public List<User> getFriends() {
+        return friends;
     }
 
     //public void setProfilePhoto()
