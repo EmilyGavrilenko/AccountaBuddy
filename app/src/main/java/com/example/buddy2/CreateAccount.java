@@ -142,7 +142,8 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
 
         addToDatabase();
 
-        Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
+
+        Intent startIntent = new Intent (getApplicationContext(),ChooseCharity.class);
         startActivity(startIntent);
     }
 
@@ -189,7 +190,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         int i = v.getId();
         if (i == R.id.sign_up) {
             createAccount(mEmail.getText().toString(), mPassword.getText().toString());
-            Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
+            Intent startIntent = new Intent (getApplicationContext(),ChooseCharity.class);
             startActivity(startIntent);
         } else if (i == R.id.have_account) {
             Intent startIntent = new Intent (getApplicationContext(),Login.class);

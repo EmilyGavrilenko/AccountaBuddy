@@ -24,7 +24,8 @@
             android:label="@string/title_activity_profile" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".Login"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ChooseCharity">
         </activity>
     </application>
 

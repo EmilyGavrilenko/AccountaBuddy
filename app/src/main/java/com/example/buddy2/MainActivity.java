@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(navListener);
+
+
+        DataManager dm = new DataManager();
+        dm.doData();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -42,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(startIntent);
                             break;
                         case R.id.nav_friends:
-                            selectedFragment = new SocialFragment();
+                            setContentView(R.layout.fragment_social);
+//                            selectedFragment = new SocialFragment();
                             break;
                         case R.id.nav_profile:
                             startIntent = new Intent(getApplicationContext(),Profile.class);

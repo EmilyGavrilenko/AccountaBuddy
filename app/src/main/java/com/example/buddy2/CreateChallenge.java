@@ -59,6 +59,7 @@ public class CreateChallenge extends AppCompatActivity {
         boolean valid = true;
 
         String name = nameChallenge.getText().toString();
+
         if (TextUtils.isEmpty(name)) {
             nameChallenge.setError("Required.");
             valid = false;
