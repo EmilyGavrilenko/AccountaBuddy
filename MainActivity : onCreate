@@ -1,0 +1,7 @@
+DataManager dm = new DataManager();
+        dm.doData();
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(navListener);
