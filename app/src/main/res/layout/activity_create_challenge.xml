@@ -22,8 +22,8 @@
 
     <EditText
         android:id="@+id/Betting_amount"
-        android:layout_width="213dp"
-        android:layout_height="113dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Betting amount $$"
@@ -82,13 +82,14 @@
         android:id="@+id/NewChallenge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Create a New Challenge"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

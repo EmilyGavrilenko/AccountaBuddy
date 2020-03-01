@@ -120,9 +120,9 @@ public class User
         return moneyDonated;
     }
 
-    public void newChallenge(String description, double amount)
+    public void newChallenge(String challengeID, String description, double amount)
     {
-        Challenge challenge = new Challenge(description, amount); // add deadline
+        Challenge challenge = new Challenge(challengeID,description, amount); // add deadline
         currentChallenges.add(challenge);
     }
 
