@@ -4,9 +4,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+<<<<<<< HEAD
     <string name="title_activity_home">Home</string>
     <string name="home" />
     <string name="new_challenge" />
     <string name="social" />
     <string name="profile" />
+=======
+>>>>>>> 7de412511d596441a131ccfb167d1df840dea1d4
 </resources>
