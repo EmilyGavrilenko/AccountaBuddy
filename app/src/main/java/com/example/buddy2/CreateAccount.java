@@ -134,11 +134,11 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 });
         // [END create_user_with_email]
 
-        if(mAuth.getCurrentUser() == null){
-            Toast.makeText(CreateAccount.this, "Unable to Create New User. Set to Default",
-                    Toast.LENGTH_SHORT).show();
-
-        }
+//        if(mAuth.getCurrentUser() == null){
+//            Toast.makeText(CreateAccount.this, "Unable to Create New User. Set to Default",
+//                    Toast.LENGTH_SHORT).show();
+//
+//        }
 
         addToDatabase();
 

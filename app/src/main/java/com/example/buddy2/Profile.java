@@ -51,8 +51,6 @@ public class Profile extends AppCompatActivity {
         currentUser = fAuth.getCurrentUser();
 
         if(currentUser == null){
-            Toast.makeText(Profile.this, "Set to Default User",
-                    Toast.LENGTH_SHORT).show();
             userID = "D0BGz0ksG0TY70dGqUCQOgjho1Z2";
         }
 
