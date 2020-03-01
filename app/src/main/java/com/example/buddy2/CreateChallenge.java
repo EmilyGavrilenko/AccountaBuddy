@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CreateChallenge extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,8 +16,7 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
     TextView mchallengeDescript;
     TextView mchallengeCompletionDate;
     //TextView mchallengeCompletionTime;
-    FirebaseAuth mAuth;
-
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -29,7 +28,6 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
         mchallengeCompletionDate = findViewById(R.id.completion_day);
         //mchallengeCompletionTime = findViewById(R.id.completion_time);
 
-        mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.Create_challenge).setOnClickListener(this);
 
 
@@ -40,7 +38,7 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
             return;
         }
         // [Start create_challenge]
-        mAuth.
+
 
     }
     }
