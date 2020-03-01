@@ -118,7 +118,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         int i = v.getId();
         if (i == R.id.login) {
             signIn(mEmail.getText().toString(), mPassword.getText().toString());
-            Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
+            Toast.makeText(Login.this, "Invalid Email or Password.",
+                    Toast.LENGTH_SHORT).show();
+            Intent startIntent = new Intent (getApplicationContext(),Login.class);
             startActivity(startIntent);
         } else if (i == R.id.createNew) {
             Intent startIntent = new Intent (getApplicationContext(),CreateAccount.class);

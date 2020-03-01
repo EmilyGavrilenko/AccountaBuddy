@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.nav_new:
-                            selectedFragment = new NewFragment();
+                            setContentView(R.layout.activity_create_challenge);
                             break;
                         case R.id.nav_friends:
                             selectedFragment = new SocialFragment();
@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    if (selectedFragment != null)
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                     return true;
                 }
             };
