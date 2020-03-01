@@ -11,13 +11,15 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+ //       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //        if (user != null) {
 //            // Name, email address, and user id
 //            String name = user.getDisplayName();
