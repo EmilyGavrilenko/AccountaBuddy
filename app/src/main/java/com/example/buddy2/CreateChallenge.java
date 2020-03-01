@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.ParseException;
@@ -75,6 +76,7 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             User user = documentSnapshot.toObject(User.class);
                             user.newChallenge(name,descript,bet);
+
                         }
                     }) //user in user1
                     .addOnFailureListener(new OnFailureListener() {
@@ -83,6 +85,8 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
                             Log.w(TAG, "Error adding document", e);
                         }
                     });
+             docRef.collection("users").document(userID)
+                     .update("currentChallenges", FieldValue.arrayUnion());
 
         }
 
