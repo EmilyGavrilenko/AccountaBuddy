@@ -13,6 +13,8 @@ public class User
     public List<User> friendRequests;
     //public List<String> notifications;
     public BankAccount bankAccount;
+    public Charity charity;
+    public double moneyDonated;
 
     public User(String username)
     {
@@ -21,6 +23,7 @@ public class User
         currentChallenges = new ArrayList<>();
         friends = new ArrayList<>();
         friendRequests = new ArrayList<>();
+        moneyDonated = 0;
     }
 
     public void setUsername(String newname)
@@ -29,6 +32,27 @@ public class User
     }
 
     //public void setProfilePhoto()
+
+    public void setCharity(Charity charity)
+    {
+        this.charity = charity;
+    }
+
+    public void setBankAccount(BankAccount bankAccount)
+    {
+        this.bankAccount = bankAccount;
+    }
+
+    public void createBankAccount()
+    {
+        BankAccount bank = new BankAccount(0);
+        bankAccount = bank;
+    }
+
+    public double getMoneyDonated()
+    {
+        return moneyDonated;
+    }
 
     public void newChallenge(String description, double amount)
     {
@@ -40,6 +64,11 @@ public class User
     {
         challenge.won = outcome;
         challenge.status = false;
+
+        if (!challenge.won)
+        {
+            Transaction.donate(this, this.charity, challenge.amount);
+        }
 
         for (Challenge c : currentChallenges)
         {
@@ -64,7 +93,7 @@ public class User
     {
         this.friendRequests.remove(friend);
         this.friends.add(friend);
-        user.friends.add(this);
+        friend.friends.add(this);
         //notify other user
     }
 
