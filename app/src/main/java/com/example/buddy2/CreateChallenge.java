@@ -40,6 +40,6 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
             return;
         }
         // [Start create_challenge]
-        mAuth.Challenge(name, descript, date, bet).addO
+
     }
     }
