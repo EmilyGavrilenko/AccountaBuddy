@@ -65,12 +65,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
 
         // Create a new user with a first, middle, and last name
         Map<String, Object> user = new HashMap<>();
-        user.put("first", fName);
-        user.put("last", lName);
-        user.put("email", email);
-        user.put("moneyDonated", 0);
-        user.put("totalChallenges", 0);
-        user.put("completedChallenges", 0);
+        user.put("username", user1);
 
         Map<String, Object> nestedData = new HashMap<>();
         nestedData.put("challenge1", "get to class on time");
@@ -84,6 +79,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         fStore.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + mAuth.getUid());
