@@ -24,6 +24,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     TextView mPassword;
     FirebaseAuth mAuth;
 
+    FirebaseAuth.AuthStateListener mAuthListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +35,24 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         mPassword = findViewById(R.id.login_password);
 
         mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public void onAuthStateChanged(FirebaseAuth firebaseAuth){
+                if(firebaseAuth.getCurrentUser() != null){
+                    Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
+                    startActivity(startIntent);
+                }
+            }
+        };
 
         findViewById(R.id.login).setOnClickListener(this);
         findViewById(R.id.createNew).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
     private void signIn(String email, String password) {
@@ -101,9 +118,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         int i = v.getId();
         if (i == R.id.login) {
             signIn(mEmail.getText().toString(), mPassword.getText().toString());
+            Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
+            startActivity(startIntent);
         } else if (i == R.id.createNew) {
             Intent startIntent = new Intent (getApplicationContext(),CreateAccount.class);
             startActivity(startIntent);
         }
     }
+
 }
