@@ -1,5 +1,8 @@
 package com.example.buddy2;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,8 +23,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.Random;
 
 
 public class CreateChallenge extends AppCompatActivity implements View.OnClickListener{
@@ -50,7 +54,7 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.Create_challenge_btn).setOnClickListener(this);
 
 
-        };
+        }
 
 
     private void getUser(){
@@ -68,25 +72,33 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
 
             // get currentuser
             FirebaseUser user1 = mAuth.getCurrentUser();
-            final String userID = user1.getUid();
-            DocumentReference docRef = fStore.collection("users").document(userID);
-                    docRef.get()
-                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            User user = documentSnapshot.toObject(User.class);
-                            user.newChallenge(name,descript,bet);
+            final String userID;
+            if(user1==null){
+                userID = (new Random()).toString();
+            }
+            else{
+                userID=user1.getUid();
+            }
 
-                        }
-                    }) //user in user1
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                        }
-                    });
-             docRef.collection("users").document(userID)
-                     .update("currentChallenges", FieldValue.arrayUnion());
+            Challenge challenge = new Challenge(name,descript,bet);
+            DocumentReference docRef = fStore.collection("users").document(userID);
+            docRef.update("currentChallenges", name).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "DocumentSnapshot successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error updating document", e);
+                    }
+                });
+
+            //List<Challenge> challenges = new ArrayList<>();
+            //challenges.add(challenge);
+            //docRef.update("currentChallenges", name);
+
 
         }
 
@@ -97,6 +109,6 @@ public class CreateChallenge extends AppCompatActivity implements View.OnClickLi
             Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
             startActivity(startIntent);
         }
+        }
     }
-}
 

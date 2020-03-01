@@ -1,5 +1,6 @@
 package com.example.buddy2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class User
     public String password;
     //profile photo
     public List<Challenge> pastChallenges;
-    public List<Challenge> currentChallenges;
+    public ArrayList currentChallenges;
     //public List<User> friends;
     //public List<User> friendRequests;
     //public List<String> notifications;
@@ -27,7 +28,7 @@ public class User
         this.email = email;
         this.password = password;
         pastChallenges = new ArrayList<>();
-        currentChallenges = new ArrayList<>();
+        currentChallenges = new ArrayList();
         //friends = new ArrayList<>();
         //friendRequests = new ArrayList<>();
         moneyDonated = 0;
@@ -35,7 +36,7 @@ public class User
     public User()
     {
         pastChallenges = new ArrayList<>();
-        currentChallenges = new ArrayList<>();
+        //currentChallenges = new ArrayList<>();
         //friends = new ArrayList<>();
         //friendRequests = new ArrayList<>();
         moneyDonated = 0;
@@ -61,7 +62,11 @@ public class User
         return lastName;
     }
 
-    public void setCurrentChallenges(List<Challenge> currentChallenges) {
+    /*public void setCurrentChallenges(List<Challenge> currentChallenges) {
+        this.currentChallenges = currentChallenges;
+    }*/
+
+    public void setCurrentChallenges(ArrayList currentChallenges) {
         this.currentChallenges = currentChallenges;
     }
 
@@ -81,9 +86,9 @@ public class User
         this.password = password;
     }
 
-    public List<Challenge> getCurrentChallenges() {
+/*    public List<Challenge> getCurrentChallenges() {
         return currentChallenges;
-    }
+    }*/
 
     public List<Challenge> getPastChallenges() {
         return pastChallenges;
@@ -112,13 +117,13 @@ public class User
         return moneyDonated;
     }
 
-    public void newChallenge(String challengeID, String description, double amount)
+   /* public void newChallenge(String challengeID, String description, double amount)
     {
         Challenge challenge = new Challenge(challengeID,description, amount); // add deadline
         currentChallenges.add(challenge);
-    }
+    }*/
 
-    public void completeChallenge(Challenge challenge, boolean outcome)
+   /* public void completeChallenge(Challenge challenge, boolean outcome)
     {
         challenge.won = outcome;
         challenge.status = false;
@@ -138,7 +143,7 @@ public class User
         pastChallenges.add(challenge);
 
         //add notification
-    }
+    }*/
 
     // friendship
     /*public void sendFriendRequest(User user)
