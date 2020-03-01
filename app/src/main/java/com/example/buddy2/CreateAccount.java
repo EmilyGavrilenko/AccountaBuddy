@@ -1,3 +1,4 @@
+
 package com.example.buddy2;
 
 import android.content.Intent;
@@ -66,17 +67,15 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         Map<String, Object> user = new HashMap<>();
         user.put("username", user1);
 
+        Map<String, Object> nestedData = new HashMap<>();
+        nestedData.put("challenge1", "get to class on time");
+        nestedData.put("challenge2", "go to bed before 12am");
 
-        // Add a new document with a generated ID
-// <<<<<<< meha
-//         fStore.collection("users")
-//                 .add(user1)
-//                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-=======
+        user.put("challenges", nestedData);
+
         if(userId == null){
             userId = "D0BGz0ksG0TY70dGqUCQOgjho1Z2";
         }
-
         fStore.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -99,6 +98,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         if (!validateForm()) {
             return;
         }
+
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

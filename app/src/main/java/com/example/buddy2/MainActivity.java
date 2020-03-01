@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId())
                     {
                         case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
+                            startIntent = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(startIntent);
                             break;
                         case R.id.nav_new:
                             startIntent = new Intent(getApplicationContext(),CreateChallenge.class);

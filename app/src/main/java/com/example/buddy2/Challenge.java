@@ -1,6 +1,4 @@
 package com.example.buddy2;
-
-
 import java.util.Date;
 
 public class Challenge

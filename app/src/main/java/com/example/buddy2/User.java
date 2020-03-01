@@ -13,9 +13,10 @@ public class User
     //profile photo
     public List<Challenge> pastChallenges;
     public List<Challenge> currentChallenges;
-    //public List<User> friends;
-    //public List<User> friendRequests;
-    //public List<String> notifications;
+
+    public List<User> friends;
+    public List<User> friendRequests;
+
     public BankAccount bankAccount;
     public Charity charity;
     public double moneyDonated;
@@ -28,16 +29,17 @@ public class User
         this.password = password;
         pastChallenges = new ArrayList<>();
         currentChallenges = new ArrayList<>();
-        //friends = new ArrayList<>();
-        //friendRequests = new ArrayList<>();
+
+        friends = new ArrayList<>();
+        friendRequests = new ArrayList<>();
         moneyDonated = 0;
     }
     public User()
     {
         pastChallenges = new ArrayList<>();
         currentChallenges = new ArrayList<>();
-        //friends = new ArrayList<>();
-        //friendRequests = new ArrayList<>();
+        friends = new ArrayList<>();
+        friendRequests = new ArrayList<>();
         moneyDonated = 0;
     }
 
@@ -89,6 +91,14 @@ public class User
         return pastChallenges;
     }
 
+    public List<User> getFriendRequests() {
+        return friendRequests;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+  
     //public void setProfilePhoto()
 
     public void setCharity(Charity charity)
@@ -141,7 +151,8 @@ public class User
     }
 
     // friendship
-    /*public void sendFriendRequest(User user)
+    public void sendFriendRequest(User user)
+
     {
         user.friendRequests.add(user);
         //add notification
@@ -174,5 +185,7 @@ public class User
             System.out.println("Error : user not found in this.friends :could not remove user from this.friends");
             //throw NullPointerException;
         }
-    }*/
+
+    }
 }
+
