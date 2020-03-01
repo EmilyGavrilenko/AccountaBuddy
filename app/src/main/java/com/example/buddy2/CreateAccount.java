@@ -1,3 +1,4 @@
+
 package com.example.buddy2;
 
 import android.content.Intent;
@@ -57,6 +58,8 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         String email = mEmail.getText().toString();
         String fName = mFirstname.getText().toString();
         String lName = mLastname.getText().toString();
+        String password = mPassword.getText().toString();
+        User user1 = new User(fName, lName, email, password);
 
         String userId = mAuth.getUid();
 
@@ -69,11 +72,15 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         user.put("totalChallenges", 0);
         user.put("completedChallenges", 0);
 
-        // Add a new document with a generated ID
+        Map<String, Object> nestedData = new HashMap<>();
+        nestedData.put("challenge1", "get to class on time");
+        nestedData.put("challenge2", "go to bed before 12am");
+
+        user.put("challenges", nestedData);
+
         if(userId == null){
             userId = "D0BGz0ksG0TY70dGqUCQOgjho1Z2";
         }
-
         fStore.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -95,6 +102,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         if (!validateForm()) {
             return;
         }
+
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
