@@ -31,6 +31,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+
         mEmail = findViewById(R.id.login_email);
         mPassword = findViewById(R.id.login_password);
 
@@ -47,6 +50,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         findViewById(R.id.login).setOnClickListener(this);
         findViewById(R.id.createNew).setOnClickListener(this);
+        findViewById(R.id.skip_login).setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +128,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             startActivity(startIntent);
         } else if (i == R.id.createNew) {
             Intent startIntent = new Intent (getApplicationContext(),CreateAccount.class);
+            startActivity(startIntent);
+        } else if (i == R.id.skip_login) {
+            Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
             startActivity(startIntent);
         }
     }

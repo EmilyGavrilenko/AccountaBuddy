@@ -6,21 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView2"-->
-        <!--android:layout_width="231dp"-->
-        <!--android:layout_height="555dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:srcCompat="@drawable/cute_owl" />-->
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@menu/bottom_navigation"/>
+        android:layout_above="@menu/bottom_navigation" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

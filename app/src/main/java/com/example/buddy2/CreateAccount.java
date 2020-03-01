@@ -60,18 +60,30 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         String password = mPassword.getText().toString();
         User user1 = new User(fName, lName, email, password);
 
+        String userId = mAuth.getUid();
+
         // Create a new user with a first, middle, and last name
         Map<String, Object> user = new HashMap<>();
         user.put("username", user1);
 
 
         // Add a new document with a generated ID
-        fStore.collection("users")
-                .add(user1)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+// <<<<<<< meha
+//         fStore.collection("users")
+//                 .add(user1)
+//                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+=======
+        if(userId == null){
+            userId = "D0BGz0ksG0TY70dGqUCQOgjho1Z2";
+        }
+
+        fStore.collection("users").document(userId)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + mAuth.getUid());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -80,7 +92,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
-
     }
 
     private void createAccount(String email, String password) {
@@ -88,7 +99,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         if (!validateForm()) {
             return;
         }
-
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -120,9 +130,14 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 });
         // [END create_user_with_email]
 
+        if(mAuth.getCurrentUser() == null){
+            Toast.makeText(CreateAccount.this, "Unable to Create New User. Set to Default",
+                    Toast.LENGTH_SHORT).show();
+
+        }
+
         addToDatabase();
-        Toast.makeText(CreateAccount.this, "Reached end.",
-                Toast.LENGTH_SHORT).show();
+
         Intent startIntent = new Intent (getApplicationContext(),MainActivity.class);
         startActivity(startIntent);
     }
